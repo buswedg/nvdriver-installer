@@ -1,0 +1,14 @@
+name = "Notebook / Mobile"
+description = "Laptop driver with PhysX, HD Audio, Control Panel, and platform controllers"
+
+[components]
+displayDriver = true
+controlPanel = true
+physX = true
+hdAudio = true
+platformControllers = true
+
+[tweaks]
+disableTelemetry = true
+cleanInstall = true
+unattended = false

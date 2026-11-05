@@ -1,0 +1,71 @@
+<Application x:Class="NVDriverInstaller.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemesDictionary Theme="Dark" />
+                <ui:ControlsDictionary />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Global typography standard -->
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Segoe UI Variable Text, Segoe UI, sans-serif" />
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+            </Style>
+
+            <!-- Custom Pill Badges -->
+            <Style x:Key="StatusPill" TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="Padding" Value="8,2" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="#1A222D" />
+                <Setter Property="BorderBrush" Value="#2D3B4E" />
+            </Style>
+
+            <Style x:Key="SuccessPill" TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="Padding" Value="8,2" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="#14261C" />
+                <Setter Property="BorderBrush" Value="#1E472D" />
+            </Style>
+
+            <Style x:Key="WarningPill" TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="Padding" Value="8,2" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="#2D2214" />
+                <Setter Property="BorderBrush" Value="#4E3B1E" />
+            </Style>
+
+            <Style x:Key="MutedPill" TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="Padding" Value="8,2" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="#1E1E1E" />
+                <Setter Property="BorderBrush" Value="#333333" />
+            </Style>
+
+            <!-- High-contrast Action Button with distinct Disabled State -->
+            <Style x:Key="ActionButtonStyle" TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                <Setter Property="Height" Value="38" />
+                <Setter Property="Padding" Value="24,0" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Foreground" Value="White" />
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" Value="0.32" />
+                        <Setter Property="Background" Value="#17202A" />
+                        <Setter Property="BorderBrush" Value="#222F3E" />
+                        <Setter Property="Foreground" Value="#55657E" />
+                        <Setter Property="Cursor" Value="No" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,26 @@
+name = "Minimal Clean"
+description = "Removes driver and shaders but keeps monitor EDID configurations, audio, and PhysX"
+
+cliFlags = [
+    "-Silent",
+    "-NoRestorePoint",
+    "-PreventWinUpdate",
+    "-CleanNvidia"
+]
+
+[settings]
+removeNvidiaDirs = true
+remove3dtvPlay = false
+removeGfe = true
+removeNvBroadcast = true
+removeNvcp = true
+removeNvidiaCache = true
+removePhysx = false
+removeAudioBus = false
+removeMonitors = false
+removeVulkan = false
+saveLogs = true
+preventWinUpdate = true
+createRestorePoint = false
+showOffer = false
+enableSafeModeDialog = false

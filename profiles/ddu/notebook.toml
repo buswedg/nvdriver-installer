@@ -1,0 +1,26 @@
+name = "Notebook Safe Clean"
+description = "Safe clean for laptops with hybrid graphics (preserves Audio Bus and integrated graphics controllers)"
+
+cliFlags = [
+    "-Silent",
+    "-NoRestorePoint",
+    "-PreventWinUpdate",
+    "-CleanNvidia"
+]
+
+[settings]
+removeNvidiaDirs = true
+remove3dtvPlay = true
+removeGfe = true
+removeNvBroadcast = true
+removeNvcp = true
+removeNvidiaCache = true
+removePhysx = false
+removeAudioBus = false
+removeMonitors = true
+removeVulkan = true
+saveLogs = true
+preventWinUpdate = true
+createRestorePoint = false
+showOffer = false
+enableSafeModeDialog = false

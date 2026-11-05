@@ -1,0 +1,26 @@
+name = "Deep Purge"
+description = "Total driver purge removing PhysX, Audio Bus, monitors, Vulkan, and all vendor leftovers"
+
+cliFlags = [
+    "-Silent",
+    "-NoRestorePoint",
+    "-PreventWinUpdate",
+    "-CleanNvidia"
+]
+
+[settings]
+removeNvidiaDirs = true
+remove3dtvPlay = true
+removeGfe = true
+removeNvBroadcast = true
+removeNvcp = true
+removeNvidiaCache = true
+removePhysx = true
+removeAudioBus = true
+removeMonitors = true
+removeVulkan = true
+saveLogs = true
+preventWinUpdate = true
+createRestorePoint = false
+showOffer = false
+enableSafeModeDialog = false

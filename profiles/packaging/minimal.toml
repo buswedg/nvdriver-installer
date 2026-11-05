@@ -1,0 +1,14 @@
+name = "Minimal Display Driver"
+description = "Pure display driver with Control Panel only, without audio or PhysX"
+
+[components]
+displayDriver = true
+controlPanel = true
+physX = false
+hdAudio = false
+platformControllers = false
+
+[tweaks]
+disableTelemetry = true
+cleanInstall = true
+unattended = false

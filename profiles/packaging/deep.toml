@@ -1,0 +1,14 @@
+name = "Deep Minimal"
+description = "Barebones display driver with maximum debloating and silent express installation"
+
+[components]
+displayDriver = true
+controlPanel = false
+physX = false
+hdAudio = false
+platformControllers = false
+
+[tweaks]
+disableTelemetry = true
+cleanInstall = true
+unattended = true

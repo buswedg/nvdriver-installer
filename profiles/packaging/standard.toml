@@ -1,0 +1,14 @@
+name = "Desktop Standard"
+description = "Desktop driver with PhysX, HD Audio, and NVIDIA Control Panel"
+
+[components]
+displayDriver = true
+controlPanel = true
+physX = true
+hdAudio = true
+platformControllers = false
+
+[tweaks]
+disableTelemetry = true
+cleanInstall = true
+unattended = false

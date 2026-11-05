@@ -1,0 +1,43 @@
+# Build output and compiler artifacts
+**/bin/
+**/obj/
+release/
+*.exe
+*.dll
+*.pdb
+*.zip
+
+# Local logs and runtime state
+logs/
+*.log
+workflow_state.json
+network_state.json
+settings.json
+*.local.toml
+*.sync-conflict-*
+
+# Portable tools download staging (keep .keep)
+tools/ddu/*
+!tools/ddu/.keep
+tools/7z/*
+!tools/7z/.keep
+
+# Downloads and driver packages staging
+packages/
+downloads/
+*.tmp
+*.7z
+
+# IDE, Editor, and Tooling
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+Thumbs.db
+desktop.ini
+.DS_Store

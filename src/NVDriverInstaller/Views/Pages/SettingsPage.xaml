@@ -1,0 +1,157 @@
+<Page x:Class="NVDriverInstaller.Views.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:vm="clr-namespace:NVDriverInstaller.ViewModels"
+      Title="Settings"
+      Background="Transparent"
+      Focusable="True">
+
+    <Page.DataContext>
+        <vm:SettingsViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <StackPanel Margin="32,24,32,32" MaxWidth="920">
+
+            <!-- Page Title -->
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Text="Settings" FontSize="26" FontWeight="SemiBold" />
+            </StackPanel>
+
+            <!-- Card 1: Default Profile Presets -->
+            <ui:Card Padding="18" Margin="0,0,0,16">
+                <StackPanel>
+                    <TextBlock Text="Default Profile Presets" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,12" />
+
+                    <Separator Background="#1E293B" Margin="0,0,0,14" />
+
+                    <!-- Default Desktop Profile -->
+                    <StackPanel Margin="0,0,0,14">
+                        <TextBlock Text="Default Packaging Profile (Desktop)" FontWeight="Medium" FontSize="13" Margin="0,0,0,3" />
+                        <TextBlock Text="Default driver debloating strategy for Desktop systems" FontSize="11" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
+                        <ComboBox ItemsSource="{Binding PackagingProfiles}"
+                                  SelectedValue="{Binding SelectedDefaultDesktopProfile}"
+                                  SelectedValuePath="Id"
+                                  DisplayMemberPath="DisplayName"
+                                  Height="36" />
+                    </StackPanel>
+
+                    <Separator Background="#1E293B" Margin="0,0,0,14" />
+
+                    <!-- Default Notebook Profile -->
+                    <StackPanel Margin="0,0,0,14">
+                        <TextBlock Text="Default Packaging Profile (Notebook)" FontWeight="Medium" FontSize="13" Margin="0,0,0,3" />
+                        <TextBlock Text="Default driver debloating strategy for Notebook systems" FontSize="11" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
+                        <ComboBox ItemsSource="{Binding PackagingProfiles}"
+                                  SelectedValue="{Binding SelectedDefaultNotebookProfile}"
+                                  SelectedValuePath="Id"
+                                  DisplayMemberPath="DisplayName"
+                                  Height="36" />
+                    </StackPanel>
+
+                    <Separator Background="#1E293B" Margin="0,0,0,14" />
+
+                    <!-- Default DDU Profile -->
+                    <StackPanel>
+                        <TextBlock Text="Default DDU Profile" FontWeight="Medium" FontSize="13" Margin="0,0,0,3" />
+                        <TextBlock Text="Default profile for DDU driver cleanup" FontSize="11" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
+                        <ComboBox ItemsSource="{Binding DduProfiles}"
+                                  SelectedValue="{Binding SelectedDefaultDduProfile}"
+                                  SelectedValuePath="Id"
+                                  DisplayMemberPath="DisplayName"
+                                  Height="36" />
+                    </StackPanel>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- Card 2: Paths & Staging -->
+            <ui:Card Padding="18" Margin="0,0,0,16">
+                <StackPanel>
+                    <TextBlock Text="File Paths &amp; Staging" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,12" />
+
+                    <Separator Background="#1E293B" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Display Driver Uninstaller Path (Default: ./tools/ddu/Display Driver Uninstaller.exe)" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding DduPath, UpdateSourceTrigger=PropertyChanged}" Height="34" Margin="0,0,0,12" />
+
+                    <TextBlock Text="7-Zip Executable Path (Default: ./tools/7z/7z.exe)" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding SevenZipPath, UpdateSourceTrigger=PropertyChanged}" Height="34" Margin="0,0,0,12" />
+
+                    <TextBlock Text="Packages &amp; Download Staging Directory (Default: ./packages)" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding DownloadCachePath, UpdateSourceTrigger=PropertyChanged}" Height="34" Margin="0,0,0,4" />
+                </StackPanel>
+            </ui:Card>
+
+            <!-- Card 3: Application, Build & Install Logs -->
+            <ui:Card Padding="18" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Application, Build &amp; Install Logs" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,4" />
+                    <TextBlock Text="Persistent execution, packaging compilation, and driver installation activity logs saved to ./logs/" FontSize="11" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,14" />
+
+                    <Separator Background="#1E293B" Margin="0,0,0,14" />
+
+                    <WrapPanel Orientation="Horizontal">
+                        <ui:Button Content="App Log"
+                                   Appearance="Secondary"
+                                   Padding="12,7"
+                                   Click="OnViewLogClicked"
+                                   Margin="0,0,8,8">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="Document24" />
+                            </ui:Button.Icon>
+                        </ui:Button>
+
+                        <ui:Button Content="Build Log"
+                                   Appearance="Secondary"
+                                   Padding="12,7"
+                                   Click="OnViewBuildLogClicked"
+                                   Margin="0,0,8,8">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="DocumentBulletList24" />
+                            </ui:Button.Icon>
+                        </ui:Button>
+
+                        <ui:Button Content="Install Log"
+                                   Appearance="Secondary"
+                                   Padding="12,7"
+                                   Click="OnViewInstallLogClicked"
+                                   Margin="0,0,8,8">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="ArrowDownload24" />
+                            </ui:Button.Icon>
+                        </ui:Button>
+
+                        <ui:Button Content="Open Logs Folder"
+                                   Appearance="Secondary"
+                                   Padding="12,7"
+                                   Click="OnOpenLogsFolderClicked"
+                                   Margin="0,0,8,8">
+                            <ui:Button.Icon>
+                                <ui:SymbolIcon Symbol="FolderOpen24" />
+                            </ui:Button.Icon>
+                        </ui:Button>
+                    </WrapPanel>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- Save Action Toolbar -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding Status}" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" VerticalAlignment="Center" />
+
+                <ui:Button Grid.Column="1"
+                           Content="Save Preferences"
+                           Appearance="Primary"
+                           Click="OnSaveClicked">
+                    <ui:Button.Icon>
+                        <ui:SymbolIcon Symbol="Save24" Foreground="White" />
+                    </ui:Button.Icon>
+                </ui:Button>
+            </Grid>
+
+        </StackPanel>
+</Page>

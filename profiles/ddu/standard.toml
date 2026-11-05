@@ -1,0 +1,26 @@
+name = "Desktop Standard Clean"
+description = "Wipes NVIDIA driver, telemetry, GFE/App, and monitor caches while preserving PhysX and Audio Bus"
+
+cliFlags = [
+    "-Silent",
+    "-NoRestorePoint",
+    "-PreventWinUpdate",
+    "-CleanNvidia"
+]
+
+[settings]
+removeNvidiaDirs = true
+remove3dtvPlay = true
+removeGfe = true
+removeNvBroadcast = true
+removeNvcp = true
+removeNvidiaCache = true
+removePhysx = false
+removeAudioBus = false
+removeMonitors = true
+removeVulkan = true
+saveLogs = true
+preventWinUpdate = true
+createRestorePoint = false
+showOffer = false
+enableSafeModeDialog = false
